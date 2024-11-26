@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="icon.ico" type="image/x-icon">
+  <title>Patrol Notes BBCode Generator</title>
+  <style>
+    body {
+      background-color: #282828; /* Darker background for the entire page */
+      color: #c9d1d9;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+    }
+    h1, h2, h3 {
+      color: #ffffff;
+      text-align: center;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, textarea, button {
+      background-color: #2d2d3d;
+      color: #c9d1d9;
+      border: 1px solid #444;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+      width: 100%;
+    }
+    button {
+      cursor: pointer;
+      background-color: #28a745; /* Green color */
+      color: white;
+      border: 1px solid #218838; /* Darker green border */
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #218838; /* Darker green on hover */
+    }
+
+    .form-section {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      resize: none;
+      height: 400px;
+    }
+
+    /* Set form width to 65% and background color with curved edges */
+    form {
+      width: 65%;
+      background-color: #161719; /* Dark background for the form */
+      padding: 50px;
+      margin: 0 auto;
+      border-radius: 25px; /* Curved edges like Instagram logo */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: adds a soft shadow effect */
+    }
+
+    /* New CSS for the success message */
+    #successMessage {
+      display: none;
+      color: #28a745; /* Green color */
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+</style>
+
+</head>
+<body>
+  <h1>Patrol Notes BBCode Generator</h1>
+  <form id="bbcodeForm">
+    <!-- Activity Details -->
+    <div class="form-section">
+      <h2>Activity Details</h2>
+      <label for="activityDate">Activity Date:</label>
+      <input type="date" id="activityDate" required>
+
+      <label for="activityTime">Activity Time (e.g., 14:21 - 16:47):</label>
+      <input type="text" id="activityTime" placeholder="HH:MM - HH:MM" required>
+      
+      <label for="unitCallsign">Unit Callsign:</label>
+      <input type="text" id="unitCallsign" placeholder="e.g., 1-ADAM-3, 9-METRO-10" required>
+      
+      <label for="patrolPartner">Patrol Partner:</label>
+      <input type="text" id="patrolPartner" placeholder="e.g., Claudia Redrigo, Zephyr Parker" required>
+    </div>
+    <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
+
+    <!-- Activity Documentation -->
+    <div class="form-section">
+      <h2>Activity Documentation</h2>
+      
+      <!-- STATUS-2 -->
+      <h3>STATUS-2</h3>
+      <label for="status2">STATUS-2 Image Link:</label>
+      <input type="text" id="status2" placeholder="Image link for STATUS-2" required>
+      <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
+
+      <!-- Computer-Aided Dispatch (CAD) -->
+      <h3>Computer-Aided Dispatch (CAD)</h3>
+      <label for="cad">CAD Image Link:</label>
+      <input type="text" id="cad" placeholder="Image link for CAD" required>
+      <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
+
+      <!-- 10-55 -->
+      <h3>10-55</h3>
+      <label for="ten55Radio">10-55 Radio Image Link:</label>
+      <input type="text" id="ten55Radio" placeholder="Image link for 10-55 Radio (kosongkan saja jika tidak ada)" required>
+
+      <label for="ten55Activity">10-55 Activity Image Link:</label>
+      <input type="text" id="ten55Activity" placeholder="Image link for 10-55 Activity (kosongkan saja jika tidak ada)" required>
+
+      <label for="ten55Final">10-55 Final Radio (10-99) Image Link:</label>
+      <input type="text" id="ten55Final" placeholder="Image link for 10-55 Final Radio (kosongkan saja jika tidak ada)" required>
+      <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
+
+      <!-- 10-57 -->
+      <h3>10-57</h3>
+      <label for="ten57Radio">10-57 Radio Image Link:</label>
+      <input type="text" id="ten57Radio" placeholder="Image link for 10-57 Radio (kosongkan saja jika tidak ada)" required>
+
+      <label for="ten57Activity">10-57 Activity Image Link:</label>
+      <input type="text" id="ten57Activity" placeholder="Image link for 10-57 Activity (kosongkan saja jika tidak ada)" required>
+
+      <label for="ten57Final">10-57 Final Radio (10-99) Image Link:</label>
+      <input type="text" id="ten57Final" placeholder="Image link for 10-57 Final Radio (kosongkan saja jika tidak ada)" required>
+      <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
+
+      <!-- 10-15 -->
+      <h3>10-15</h3>
+      <label for="ten15Radio">10-15 Radio Image Link:</label>
+      <input type="text" id="ten15Radio" placeholder="Image link for 10-15 Radio (kosongkan saja jika tidak ada)" required>
+
+      <label for="ten15Activity">10-15 Activity Image Link:</label>
+      <input type="text" id="ten15Activity" placeholder="Image link for 10-15 Activity (kosongkan saja jika tidak ada)" required>
+
+      <label for="ten15Final">10-15 Final Radio (10-99) Image Link:</label>
+      <input type="text" id="ten15Final" placeholder="Image link for 10-15 Final Radio (kosongkan saja jika tidak ada)" required>
+      <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
+
+      <!-- STATUS-1 -->
+      <h3>STATUS-1</h3>
+      <label for="status1">STATUS-1 Radio and Return Image Link:</label>
+      <input type="text" id="status1" placeholder="Image link for STATUS-1" required>
+    </div>
+
+    <button type="button" onclick="generateBBCode()">Generate BBCode</button>
+    <hr style="border: none; border-top: 2px solid white; margin: 20px 0;">
+  </form>
+
+  <!-- Success Message -->
+  <div id="successMessage">BBCode generated!</div>
+
+  <h2>Generated BBCode</h2>
+  <textarea id="bbcodeOutput" readonly></textarea>
+
+  <script>
+    function calculateDuration(timeInput) {
+      const times = timeInput.split(" - ");
+      if (times.length !== 2) return "Invalid time format";
+  
+      const [startHour, startMinute] = times[0].split(":").map(Number);
+      const [endHour, endMinute] = times[1].split(":").map(Number);
+  
+      const startTime = startHour * 60 + startMinute;
+      const endTime = endHour * 60 + endMinute;
+  
+      const durationMinutes = endTime - startTime;
+      if (durationMinutes < 0) return "Invalid time range";
+  
+      const hours = Math.floor(durationMinutes / 60);
+      const minutes = durationMinutes % 60;
+  
+      return `${hours} Hours ${minutes} Minutes`;
+    }
+  
+    function generateBBCode() {
+      const activityDate = document.getElementById("activityDate").value;
+      const [year, month, day] = activityDate.split("-");
+      const formattedDate = `${day}/${month}/${year.substring(2)}`;
+      const activityTime = document.getElementById("activityTime").value;
+      const unitCallsign = document.getElementById("unitCallsign").value;
+      const patrolPartner = document.getElementById("patrolPartner").value;
+  
+      const status2 = document.getElementById("status2").value || "N/A";
+      const cad = document.getElementById("cad").value || "N/A";
+  
+      const ten55Radio = document.getElementById("ten55Radio").value || "N/A";
+      const ten55Activity = document.getElementById("ten55Activity").value || "N/A";
+      const ten55Final = document.getElementById("ten55Final").value || "N/A";
+  
+      const ten57Radio = document.getElementById("ten57Radio").value || "N/A";
+      const ten57Activity = document.getElementById("ten57Activity").value;
+      const ten57Final = document.getElementById("ten57Final").value || "N/A";
+  
+      const ten15Radio = document.getElementById("ten15Radio").value || "N/A";
+      const ten15Activity = document.getElementById("ten15Activity").value || "N/A";
+      const ten15Final = document.getElementById("ten15Final").value || "N/A";
+  
+      const status1 = document.getElementById("status1").value || "N/A";
+  
+      const duration = calculateDuration(activityTime);
+  
+      const bbcode = `
+  [divbox=transparent][list][/list]
+  [center][size=90][b]ADMINISTRATIVE SERVICE BUREAU
+  PROBATIONARY PERIOD[/b][/size][/center]
+  [size=85.75][aligntable=middle,0,15,15,0,0,transparent][justify]
+  [list=][/list][center][img]https://i.imgur.com/2Zt5baY.png[/img][/center][list=][/list]
+  [img]https://i.imgur.com/O5nC1RX.png[/img]
+  [b]PATROL NOTES[/b]
+  [img]https://i.imgur.com/O5nC1RX.png[/img]
+  [b]DATE, TIME, AND DURATION:[/b][list=none]
+  ACTIVITY DATE: ${formattedDate}
+  ACTIVITY TIME: ${activityTime}
+  DURATION:  ${duration}
+  
+  [/list][b]UNIT AND PATROL PARTNER:[/b][list=none]
+  UNIT CALLSIGN: ${unitCallsign}
+  PATROL PARTNER: ${patrolPartner}
+  
+  [/list][img]https://i.imgur.com/O5nC1RX.png[/img]
+  [b]ACTIVITY DOCUMENTATION[/b]
+  [img]https://i.imgur.com/O5nC1RX.png[/img]
+  [b]Notes: [/b]This column [_] can only be filled by officers from Training Divisions, leave it blank. [b](([/b] screenshots are not allowed to be cropped [b]))[/b].
+  [b]STATUS-2[/b][list=none]
+          [*][_]  STATUS-2 Radio and Attendance [b](([/b] /time [b]))[/b]
+              [spoiler]${status2 !== "N/A" ? `[img]${status2}[/img]` : 'N/A'}[/spoiler]
+  [/list]
+  [b]Computer-Aided Dispatch (CAD)[/b][list=none]
+          [*][_] Alternative Radio [b](([/b] /setar 1 [b]))[/b], [_] Speed Trap Connection [b](([/b] /togspeedtrap [b]))[/b], and [_] Unit Callsign [b](([/b] /setunit [b]))[/b]
+              [spoiler]${cad !== "N/A" ? `[img]${cad}[/img]` : 'N/A'}[/spoiler]
+  [/list]
+  [b]10-55[/b][list=none]
+          [*][_] 10-55 Radio
+              [spoiler]${ten55Radio !== "N/A" ? `[img]${ten55Radio}[/img]` : 'N/A'}[/spoiler]
+      [color=transparent]-- Break --[/color]
+          [*][_] Activity
+              [spoiler]${ten55Activity !== "N/A" ? `[img]${ten55Activity}[/img]` : 'N/A'}[/spoiler]
+      [color=transparent]-- Break --[/color]
+          [*][_] 10-99 Radio
+              [spoiler]${ten55Final !== "N/A" ? `[img]${ten55Final}[/img]` : 'N/A'}[/spoiler]
+  [/list]
+  [b]10-57[/b][list=none]
+          [*][_] 10-57 Radio
+              [spoiler]${ten57Radio !== "N/A" ? `[img]${ten57Radio}[/img]` : 'N/A'}[/spoiler]
+      [color=transparent]-- Break --[/color]
+          [*][_] Activity
+              [spoiler]${ten57Activity !== "N/A" ? `[img]${ten57Activity}[/img]` : 'N/A'}[/spoiler]
+      [color=transparent]-- Break --[/color]
+          [*][_] 10-99 Radio
+              [spoiler]${ten57Final !== "N/A" ? `[img]${ten57Final}[/img]` : 'N/A'}[/spoiler]
+  [/list]
+  [b]10-15[/b][list=none]
+          [*][_] 10-15 Radio
+              [spoiler]${ten15Radio !== "N/A" ? `[img]${ten15Radio}[/img]` : 'N/A'}[/spoiler]
+      [color=transparent]-- Break --[/color]
+          [*][_] Activity
+              [spoiler]${ten15Activity !== "N/A" ? `[img]${ten15Activity}[/img]` : 'N/A'}[/spoiler]
+      [color=transparent]-- Break --[/color]
+          [*][_] 10-99 Radio
+              [spoiler]${ten15Final !== "N/A" ? `[img]${ten15Final}[/img]` : 'N/A'}[/spoiler]
+  [/list]
+  [b]STATUS-1[/b][list=none]
+          [*][_] STATUS-1 Radio and Return [b](([/b] /time [b]))[/b]
+              [spoiler]${status1 !== "N/A" ? `[img]${status1}[/img]` : 'N/A'}[/spoiler]
+  [/list]
+  [list][/list][/divbox]`;
+      document.getElementById("bbcodeOutput").value = bbcode.trim();
+      document.getElementById("bbcodeOutput").value = bbcode;
+  
+      // Show success message
+      const successMessage = document.getElementById("successMessage");
+      successMessage.style.display = "block";
+  
+      // Hide the success message after 5 seconds
+      setTimeout(function() {
+        successMessage.style.display = "none";
+      }, 5000);
+    }
+  </script>
+  
+</body>
+</html>
