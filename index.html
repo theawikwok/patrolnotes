@@ -170,7 +170,7 @@
   <h2>Generated BBCode</h2>
   <center><textarea id="bbcodeOutput" readonly></textarea></center>
 
-  <script>
+<script>
     function calculateDuration(timeInput) {
       const times = timeInput.split(" - ");
       if (times.length !== 2) return "Invalid time format";
@@ -218,36 +218,36 @@
       const duration = calculateDuration(activityTime);
   
       const bbcode = `
-  [divbox=transparent][list][/list]
-  [center][size=90][b]ADMINISTRATIVE SERVICE BUREAU
-  PROBATIONARY PERIOD[/b][/size][/center]
-  [size=85.75][aligntable=middle,0,15,15,0,0,transparent][justify]
-  [list=][/list][center][img]https://i.imgur.com/2Zt5baY.png[/img][/center][list=][/list]
-  [img]https://i.imgur.com/O5nC1RX.png[/img]
-  [b]PATROL NOTES[/b]
-  [img]https://i.imgur.com/O5nC1RX.png[/img]
-  [b]DATE, TIME, AND DURATION:[/b][list=none]
-  ACTIVITY DATE: ${formattedDate}
-  ACTIVITY TIME: ${activityTime}
-  DURATION:  ${duration}
+[divbox=transparent][list][/list]
+[center][size=90][b]ADMINISTRATIVE SERVICE BUREAU
+PROBATIONARY PERIOD[/b][/size][/center]
+[size=85.75][aligntable=middle,0,15,15,0,0,transparent][justify]
+[list=][/list][center][img]https://i.imgur.com/2Zt5baY.png[/img][/center][list=][/list]
+[img]https://i.imgur.com/O5nC1RX.png[/img]
+[b]PATROL NOTES[/b]
+[img]https://i.imgur.com/O5nC1RX.png[/img]
+[b]DATE, TIME, AND DURATION:[/b][list=none]
+ACTIVITY DATE: ${formattedDate}
+ACTIVITY TIME: ${activityTime}
+DURATION:  ${duration}
   
-  [/list][b]UNIT AND PATROL PARTNER:[/b][list=none]
-  UNIT CALLSIGN: ${unitCallsign}
-  PATROL PARTNER: ${patrolPartner}
+[/list][b]UNIT AND PATROL PARTNER:[/b][list=none]
+UNIT CALLSIGN: ${unitCallsign}
+PATROL PARTNER: ${patrolPartner}
   
-  [/list][img]https://i.imgur.com/O5nC1RX.png[/img]
-  [b]ACTIVITY DOCUMENTATION[/b]
-  [img]https://i.imgur.com/O5nC1RX.png[/img]
-  [b]Notes: [/b]This column [_] can only be filled by officers from Training Divisions, leave it blank. [b](([/b] screenshots are not allowed to be cropped [b]))[/b].
-  [b]STATUS-2[/b][list=none]
+[/list][img]https://i.imgur.com/O5nC1RX.png[/img]
+[b]ACTIVITY DOCUMENTATION[/b]
+[img]https://i.imgur.com/O5nC1RX.png[/img]
+[b]Notes: [/b]This column [_] can only be filled by officers from Training Divisions, leave it blank. [b](([/b] screenshots are not allowed to be cropped [b]))[/b].
+[b]STATUS-2[/b][list=none]
           [*][_]  STATUS-2 Radio and Attendance [b](([/b] /time [b]))[/b]
               [spoiler]${status2 !== "N/A" ? `[img]${status2}[/img]` : 'N/A'}[/spoiler]
-  [/list]
-  [b]Computer-Aided Dispatch (CAD)[/b][list=none]
+[/list]
+[b]Computer-Aided Dispatch (CAD)[/b][list=none]
           [*][_] Alternative Radio [b](([/b] /setar 1 [b]))[/b], [_] Speed Trap Connection [b](([/b] /togspeedtrap [b]))[/b], and [_] Unit Callsign [b](([/b] /setunit [b]))[/b]
               [spoiler]${cad !== "N/A" ? `[img]${cad}[/img]` : 'N/A'}[/spoiler]
-  [/list]
-  [b]10-55[/b][list=none]
+[/list]
+[b]10-55[/b][list=none]
           [*][_] 10-55 Radio
               [spoiler]${ten55Radio !== "N/A" ? `[img]${ten55Radio}[/img]` : 'N/A'}[/spoiler]
       [color=transparent]-- Break --[/color]
@@ -256,8 +256,8 @@
       [color=transparent]-- Break --[/color]
           [*][_] 10-99 Radio
               [spoiler]${ten55Final !== "N/A" ? `[img]${ten55Final}[/img]` : 'N/A'}[/spoiler]
-  [/list]
-  [b]10-57[/b][list=none]
+[/list]
+[b]10-57[/b][list=none]
           [*][_] 10-57 Radio
               [spoiler]${ten57Radio !== "N/A" ? `[img]${ten57Radio}[/img]` : 'N/A'}[/spoiler]
       [color=transparent]-- Break --[/color]
@@ -266,8 +266,8 @@
       [color=transparent]-- Break --[/color]
           [*][_] 10-99 Radio
               [spoiler]${ten57Final !== "N/A" ? `[img]${ten57Final}[/img]` : 'N/A'}[/spoiler]
-  [/list]
-  [b]10-15[/b][list=none]
+[/list]
+[b]10-15[/b][list=none]
           [*][_] 10-15 Radio
               [spoiler]${ten15Radio !== "N/A" ? `[img]${ten15Radio}[/img]` : 'N/A'}[/spoiler]
       [color=transparent]-- Break --[/color]
@@ -276,12 +276,12 @@
       [color=transparent]-- Break --[/color]
           [*][_] 10-99 Radio
               [spoiler]${ten15Final !== "N/A" ? `[img]${ten15Final}[/img]` : 'N/A'}[/spoiler]
-  [/list]
-  [b]STATUS-1[/b][list=none]
+[/list]
+[b]STATUS-1[/b][list=none]
           [*][_] STATUS-1 Radio and Return [b](([/b] /time [b]))[/b]
               [spoiler]${status1 !== "N/A" ? `[img]${status1}[/img]` : 'N/A'}[/spoiler]
-  [/list]
-  [list][/list][/divbox]`;
+[/list]
+[list][/list][/divbox]`;
       document.getElementById("bbcodeOutput").value = bbcode.trim();
       document.getElementById("bbcodeOutput").value = bbcode;
   
@@ -294,7 +294,7 @@
         successMessage.style.display = "none";
       }, 5000);
     }
-  </script>
+</script>
   
 </body>
 </html>
