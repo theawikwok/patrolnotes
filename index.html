@@ -262,7 +262,7 @@ PATROL PARTNER: ${patrolPartner}
               [spoiler]${ten57Radio !== "N/A" ? `[img]${ten57Radio}[/img]` : 'N/A'}[/spoiler]
       [color=transparent]-- Break --[/color]
           [*][_] Activity
-              [spoiler]${ten57Activity !== "N/A" ? `[img]${ten57Activity}[/img]` : 'N/A'}[/spoiler]
+              [spoiler]${ten57Activity && ten57Activity.trim().toUpperCase() !== "N/A" ? `[img]${ten57Activity}[/img]` : 'N/A'}[/spoiler]
       [color=transparent]-- Break --[/color]
           [*][_] 10-99 Radio
               [spoiler]${ten57Final !== "N/A" ? `[img]${ten57Final}[/img]` : 'N/A'}[/spoiler]
